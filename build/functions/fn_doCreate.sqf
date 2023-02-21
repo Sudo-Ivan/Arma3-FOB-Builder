@@ -13,6 +13,7 @@ private _shopVehicle = objnull;
 
 if (_vechAi) then {
     _vechWithAi = [[0,0,300], 0, _shopClass, west] call BIS_fnc_spawnVehicle;
+    // change faction to corresponding buyer?
     _shopVehicle = _vechWithAi select 0;
 }else{
     _shopVehicle = _shopClass createVehicle [0,0,0];
@@ -36,4 +37,6 @@ clearWeaponCargoGlobal _shopVehicle;
 clearMagazineCargoGlobal _shopVehicle;
 clearBackpackCargoGlobal _shopVehicle;
 
-[_player, _shopVehicle, [0,_VecRadius + 1.5,0.02], _shopDir] call build_fnc_doPickup;
+// Fix the direction/rotation/vector?
+// maybe stop spawning at 0,0,0 and use the player's position instead?
+[_player, _shopVehicle, position _player, _shopDir] call build_fnc_doPickup;
