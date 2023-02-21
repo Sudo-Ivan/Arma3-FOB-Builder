@@ -1,4 +1,7 @@
-// This code is used to create a dialog and populate the list box with the contents of the BUILDER_ITEMS array. It then sets the image for the preview based on the currently selected item in the list box.
+// This code gets the text for the preview image of the item selected in the listbox
+// The preview image is in the config for the item, so we get the name of the item
+// from the listbox, then get the config for that item, then get the name of the
+// preview image from the config, then get the image from the file and display it.
 
 disableSerialization;
 
