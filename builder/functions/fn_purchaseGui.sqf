@@ -1,10 +1,4 @@
-/**
-*  fn_purchaseGui
-*
-*  Displays GUI for purchases from the bullwark box.
-*
-*  Domain: Client
-**/
+// This code is used to create a dialog and populate the list box with the contents of the BUILDER_ITEMS array. It then sets the image for the preview based on the currently selected item in the list box.
 
 disableSerialization;
 
