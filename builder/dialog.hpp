@@ -31,7 +31,7 @@ class startBox_Dialog
 		class ObjectPicture: RscPicture
         {
             idc = 1502;
-			text="preview.paa";
+			text="";
             x = 0.1 * safezoneW + safezoneX;
             y = 0.3 * safezoneH + safezoneY;
             w = 0.2 * safezoneW;
