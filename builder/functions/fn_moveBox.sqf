@@ -1,10 +1,16 @@
-/**
-*  moveBox
-*
-*  Actor for the bulwark "Pickup" action menu item
-*
-*  Domain: Client
-**/
+
+/* 
+ * This code disables collision with all playable units for an object, attaches the object to a player, and registers the object as the player's held object.
+ *
+ * Params:
+ * _emptyCrate - The object to be attached to the player.
+ * _caller - The object that called this function.
+ * _pickupAction - The action that will be removed from the player when the object is picked up.
+ *
+ * Returns:
+ * Nothing.
+ */
+
 params ["_emptyCrate", "_caller", "_pickupAction"];
 
 if (!(player call build_fnc_isHoldingObject)) then {
