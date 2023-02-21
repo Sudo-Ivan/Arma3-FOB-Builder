@@ -1,10 +1,4 @@
-/**
-*  fn_init
-*
-*  Initialize the score system
-*
-*  Domain: Server
-**/
+// This code adds 50,000 build points to all players in the mission
 
 #include "..\..\shared\builder.hpp"
 
