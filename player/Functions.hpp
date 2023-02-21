@@ -4,6 +4,5 @@ class player
     {
         file = "player\functions";
 		class initPlayer {};
-        class reassignCurator {};
     };
 };
