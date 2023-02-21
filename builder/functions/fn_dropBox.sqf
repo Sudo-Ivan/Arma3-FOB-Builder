@@ -1,10 +1,10 @@
-/**
-*  dropBox
-*
-*  Actor for the bulwark "Drop" action menu item
-*
-*  Domain: Client
-**/
+// This function is used to move a box to the player's location
+// It is used by the build module
+// Params:
+// _target - The box to move
+// _caller - The player moving the box
+// _dropAction - The action that is being used to move the box
+// _emptyCrate - The empty crate that is being used to move the box
 
 params ["_target", "_caller", "_dropAction", "_emptyCrate"];
 
