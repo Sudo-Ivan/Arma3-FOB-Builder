@@ -37,6 +37,5 @@ clearWeaponCargoGlobal _shopVehicle;
 clearMagazineCargoGlobal _shopVehicle;
 clearBackpackCargoGlobal _shopVehicle;
 
-// Fix the direction/rotation/vector?
-// maybe stop spawning at 0,0,0 and use the player's position instead?
-[_player, _shopVehicle, position _player, _shopDir] call build_fnc_doPickup;
+
+[_player, _shopVehicle, [0,_VecRadius + 1.5,0.02], _shopDir] call build_fnc_doPickup;
