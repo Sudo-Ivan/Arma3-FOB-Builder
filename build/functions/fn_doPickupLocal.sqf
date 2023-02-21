@@ -1,11 +1,7 @@
-params ["_player", "_object", "_pos", "_dir"];
+params ["_player", "_object", "_pos", "_dir"]; 
 
-if(isNil "_pos") then {
-    [_object, _player] call BIS_fnc_attachToRelative;
-} else {
-    _object attachTo [_player, _pos, "Pelvis"];
-    _object setdir _dir;
-};
+_object attachTo [_player, _pos, "Pelvis"];
+_object setDir _dir;
 
 {
     _object disableCollisionWith _x;
