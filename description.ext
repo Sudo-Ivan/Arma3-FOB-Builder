@@ -29,6 +29,7 @@ class CfgFunctions
 	#include "builder\Functions.hpp"
 	#include "build\Functions.hpp"
 	#include "shared\Functions.hpp"
+	#include "player\Functions.hpp"
 };
 
 class CfgRemoteExec
