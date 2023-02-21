@@ -24,7 +24,6 @@ _shopVehicle setVariable ["Radius", _VecRadius, true];
 //Check if Explosive	
 if (_explosive == 1) then {
     _shopVehicle setDamage 0.9;
-    _shopVehicle addEventHandler ["Killed", killPoints_fnc_hitBoom];	
 };
     //check if invincible
 if (_invincible == 1) then {
