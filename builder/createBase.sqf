@@ -1,11 +1,16 @@
+// Create a list of build boxes
 buildBoxes = [portablebuildBox1, portablebuildBox2];
 
+// Create an empty list of objects
 PLAYER_OBJECT_LIST =[];
 
 {
-    _buildBox = _x;
+    _buildBox = _x; //Sets a variable to the current object in the list
+    //Adds an action to the buildbox that calls the moveBox function when the action is pressed
     [_buildBox, ["<t color='#00ffff'>" + "Pickup", { _this call builder_fnc_moveBox; },"",1,false,false,"true","true",2.5]] remoteExec ["addAction", 0, true];
+    //Adds an action to the buildbox that opens the purchase GUI when the action is pressed
     [_buildBox, ["<t color='#00ff00'>" + "Shop", "[] spawn builder_fnc_purchaseGui; ShopCaller = _this select 1","",1.5,false,false,"true","true",2.5]] remoteExec ["addAction", 0, true];
+    //Adds an action to the buildbox that heals the player for 500 points when the action is pressed
     [_buildBox, ["<t color='#ff0000'>" + "Heal Yourself: 500p", "
         _player = _this select 1;
         _points = _player getVariable 'buildPoints';
