@@ -11,6 +11,7 @@ class builder
         file = "builder\functions";
         class purchaseGui {};
         class moveBox {};
+        class dropBox {};
 
     };
 };
