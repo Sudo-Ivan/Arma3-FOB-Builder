@@ -16,7 +16,7 @@ params ["_emptyCrate", "_caller", "_pickupAction"];
 if (!(player call build_fnc_isHoldingObject)) then {
     {[_emptyCrate, _x] remoteExec ["disableCollisionWith", 0];} forEach playableUnits;
 
-    _emptyCrate attachTo [_caller, [0,2,0.05], "Pelvis"];
+    _emptyCrate attachTo [_caller, [0,5,0.05], "Pelvis"];
     [_emptyCrate, _pickupAction] remoteExec ["removeAction", 0];
     private _action = player addAction ["<t color='#00ffff'>" + "Drop", { _this call builder_fnc_dropBox; }, _emptyCrate];
     [player, "builder_fnc_dropBox", [nil, player, _action, _emptyCrate]] call build_fnc_registerHeldObject;
