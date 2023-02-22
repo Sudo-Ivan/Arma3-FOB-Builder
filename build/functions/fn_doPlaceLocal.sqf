@@ -18,6 +18,7 @@ if (!_drop) then {
 _object setVectorDirAndUp [_objectDir, _objectUp];
 
 removeAllActions _caller;
+removeAllActions _object;
 _caller call build_fnc_unregisterHeldObject;
 
 _object addAction [
