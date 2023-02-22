@@ -12,12 +12,7 @@ if (hasInterface) then {
 
     _buildPoints = [_player] call buildPoints_fnc_get;
 
-	_respawnTickets = [west] call BIS_fnc_respawnTickets;
-	if(isNil "_respawnTickets" || _respawnTickets < 0) then {
-        _respawnTickets = 0;
-    };
-
-    _hudText = format ["<t size='1.2' color='#ffffff'>%1</t><br/><t size='1.5' color='#dddddd'>%2</t><br/><t size='0.9' color='#cee5d0'>Wave: %3</t><br/><t size='0.9' color='#cee5d0'>Tickets: %4</t>",(name _player), _buildPoints, _respawnTickets];
+    _hudText = format ["<t size='1.2' color='#ffffff'>%1</t><br/><t size='1.5' color='#dddddd'>%2</t>",(name _player), _buildPoints];
 
     1000 cutRsc ["BuildPointsHud","PLAIN"];
     _ui = uiNameSpace getVariable "BuildPointsHud";
