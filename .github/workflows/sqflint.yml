@@ -10,11 +10,8 @@ on:
 jobs:
   test-sqflint:
     runs-on: ubuntu-latest
-    if: always()
     steps:
       - uses: actions/checkout@master
 
       - uses: arma-actions/sqflint@v1.0
-        name: Validate with SQFLint with custom arguments
-        with:
-          args: --exit w --directory builder
+        name: Validate with SQFLint
