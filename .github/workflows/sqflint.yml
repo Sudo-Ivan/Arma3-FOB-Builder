@@ -10,6 +10,7 @@ on:
 jobs:
   test-sqflint:
     runs-on: ubuntu-latest
+    if: always()
     steps:
       - uses: actions/checkout@master
 
