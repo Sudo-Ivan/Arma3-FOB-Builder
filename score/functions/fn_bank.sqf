@@ -7,17 +7,23 @@
 params ["_factionID", "_shopPrice"];
 
 // Get the bank balance for the specified faction
-_bankBalance = switch (_factionID) do {
-    case 0: { BLUFOR_BANK };
-    case 1: { OPFOR_BANK };
+_BLUFOR_BANK= 5000;
+_OPFOR_BANK= 5000;
+
+_bankBalance = _factionID call {
+	switch (_factionID) do {
+		case 0: { _BLUFOR_BANK };
+		case 1: { _OPFOR_BANK };
+	};
 };
 
 // Subtract points from the bank balance
+
 if (_bankBalance >= _shopPrice) then {
     _bankBalance = _bankBalance - _shopPrice;
     switch (_factionID) do {
-        case 0: { BLUFOR_BANK = _bankBalance; };
-        case 1: { OPFOR_BANK = _bankBalance; };
+        case 0: { _BLUFOR_BANK = _bankBalance; };
+        case 1: { _OPFOR_BANK = _bankBalance; };
     };
 
     // TODO: Add code to give the purchased item to the player
@@ -29,3 +35,9 @@ if (_bankBalance >= _shopPrice) then {
 _bankBalance;
 
 [_factionID, _bankBalance] remoteExec ["buildPoints_fnc_updateHud", 0];
+
+diag_log _BLUFOR_BANK;
+diag_log _OPFOR_BANK;
+diag_log _shopPrice;
+diag_log _bankBalance;
+diag_log _factionI;

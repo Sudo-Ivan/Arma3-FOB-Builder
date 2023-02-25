@@ -25,7 +25,7 @@ _shopClass = (BUILDER_ITEMS select _index) select 2;
 if (_shopClass == "") exitWith {}; 
  
 // Get balance from the bank
-_balance = [factionID] remoteExec ["buildPoints_fnc_bank", 2];
+_balance = [factionID, _shopPrice] remoteExec ["buildPoints_fnc_bank", 2];
  
 if (_balance >= _shopPrice && !(player call build_fnc_isHoldingObject)) then { 
     // Call the buildPoints_fnc_pointsystem function to subtract points and update balance 
@@ -40,8 +40,12 @@ if (_balance >= _shopPrice && !(player call build_fnc_isHoldingObject)) then {
         [format ["<t size='0.6' color='#ff3300'>You're already carrying an object!</t>", _shopName], -0, -0.02, 2, 0.1] call BIS_fnc_dynamicText; 
         objPurchase = false; 
     } 
-}; 
+};
  
 if (objPurchase) then { 
     closeDialog 0; 
-} 
+};
+
+diag_log _factionID;
+diag_log _shopPrice;
+diag_log _balance;
