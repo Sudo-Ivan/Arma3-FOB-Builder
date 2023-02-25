@@ -5,14 +5,7 @@
 * 
 *  Domain: Client 
 **/ 
- 
-// Define factionID to 0 for West and 1 for East 
-if (playerSide isEqualTo west) then { 
-    factionID = 0; 
-} else { 
-    factionID = 1; 
-}; 
- 
+
 _index = lbCurSel 1500; 
 private _shopVehic = objNull; 
 private _buildItem = (BUILDER_ITEMS select _index); 
@@ -25,11 +18,12 @@ _shopClass = (BUILDER_ITEMS select _index) select 2;
 if (_shopClass == "") exitWith {}; 
  
 // Get balance from the bank
-_balance = [factionID, _shopPrice] remoteExec ["buildPoints_fnc_bank", 2];
+_balance = 50000;
+// [factionID, _shopPrice] remoteExec ["buildPoints_fnc_bank", 2];
  
 if (_balance >= _shopPrice && !(player call build_fnc_isHoldingObject)) then { 
     // Call the buildPoints_fnc_pointsystem function to subtract points and update balance 
-    [_shopClass, _shopPrice, factionID] remoteExec ["buildPoints_fnc_pointsystem", 2]; 
+    [_shopPrice, factionID] remoteExec ["buildPoints_fnc_pointsystem", 2]; 
     [player, _buildItem] remoteExec ["build_fnc_doCreate", 2]; 
     objPurchase = true; 
 } else { 

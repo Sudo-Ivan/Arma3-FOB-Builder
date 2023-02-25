@@ -8,6 +8,13 @@ if(!isNil "_holdSpec") then {
 	player call build_fnc_unregisterHeldObject;
 };
 
+// Define factionID to 0 for West and 1 for East 
+if (playerSide isEqualTo west) then { 
+    factionID = 0; 
+} else { 
+    factionID = 1; 
+}; 
+
 publicVariable "factionID";
 
 [] remoteExec ["buildPoints_fnc_updateHud", 0];

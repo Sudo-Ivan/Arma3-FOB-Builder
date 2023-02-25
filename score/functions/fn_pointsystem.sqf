@@ -1,8 +1,5 @@
 
-params ["_shopClass", "_shopPrice", "_factionID"];
-
-_shopPrice = _shopPrice;
-_factionID = _factionID;
+params ["_shopPrice", "_factionID"];
 
 // Subtract points from the bank balance
 _bankBalance = [_factionID, _shopPrice] remoteExecCall ["fn_bank.sqf", 2];
