@@ -36,8 +36,8 @@ _bankBalance;
 
 [_factionID, _bankBalance] remoteExec ["buildPoints_fnc_updateHud", 0];
 
-diag_log _BLUFOR_BANK;
-diag_log _OPFOR_BANK;
-diag_log _shopPrice;
-diag_log _bankBalance;
-diag_log _factionI;
+diag_log format ["%1", _BLUFOR_BANK];
+diag_log format ["%1", _OPFOR_BANK];
+diag_log format ["%1", _shopPrice];
+diag_log format ["%1", _bankBalance];
+diag_log format ["%1", _factionID];
