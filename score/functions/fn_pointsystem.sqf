@@ -1,6 +1,9 @@
 
 params ["_shopPrice", "_factionID"];
 
+_factionID = _this select 0;
+_shopPrice = _this select 1;
+
 // Subtract points from the bank balance
 _bankBalance = [_factionID, _shopPrice] remoteExecCall ["fn_bank.sqf", 2];
 if (_shopPrice) then {

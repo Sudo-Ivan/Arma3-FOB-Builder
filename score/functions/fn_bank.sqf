@@ -7,8 +7,11 @@
 params ["_factionID", "_shopPrice"];
 
 // Get the bank balance for the specified faction
-_BLUFOR_BANK= 5000;
-_OPFOR_BANK= 5000;
+_BLUFOR_BANK= 50000;
+_OPFOR_BANK= 50000;
+
+_factionID = _this select 0;
+_shopPrice = _this select 1;
 
 _bankBalance = _factionID call {
 	switch (_factionID) do {
@@ -35,9 +38,3 @@ if (_bankBalance >= _shopPrice) then {
 _bankBalance;
 
 [_factionID, _bankBalance] remoteExec ["buildPoints_fnc_updateHud", 0];
-
-diag_log format ["%1", _BLUFOR_BANK];
-diag_log format ["%1", _OPFOR_BANK];
-diag_log format ["%1", _shopPrice];
-diag_log format ["%1", _bankBalance];
-diag_log format ["%1", _factionID];

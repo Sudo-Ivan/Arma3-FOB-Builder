@@ -9,14 +9,17 @@
 params ["_factionID", "_bankBalance"];
 
 if (hasInterface) then {
+	
 	// Disable the serialization of the code, so that it is not stored
 	// in the mission RPT file.
 	disableSerialization;
+
 	// Get the player object
 	_player = player;
 
-	_factionID = 0;
-	_bankBalance = 6969;
+	// Get the player's faction ID and bank balance from the params
+	_factionID = _this select 0;
+	_bankBalance = _this select 1;
 
 	// Create the HUD text for the player's faction
 	switch (_factionID) do {
