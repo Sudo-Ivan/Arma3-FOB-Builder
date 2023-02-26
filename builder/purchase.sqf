@@ -6,8 +6,6 @@
 *  Domain: Client 
 **/ 
 
-_factionID = 0; 
-
 _index = lbCurSel 1500; 
 private _shopVehic = objNull; 
 private _buildItem = (BUILDER_ITEMS select _index); 
@@ -20,12 +18,12 @@ _shopClass = (BUILDER_ITEMS select _index) select 2;
 if (_shopClass == "") exitWith {}; 
  
 // Get balance from the bank
-_balance = 50001;
+[side player] call buildPoints_fnc_banker;
 // [factionID, _shopPrice] remoteExec ["buildPoints_fnc_bank", 2];
  
 if (_balance >= _shopPrice && !(player call build_fnc_isHoldingObject)) then { 
     // Call the buildPoints_fnc_pointsystem function to subtract points and update balance 
-    [_shopPrice, _factionID] remoteExec ["buildPoints_fnc_pointsystem", 2]; 
+    [_shopPrice] remoteExec ["buildPoints_fnc_banker", 2]; 
     [player, _buildItem] remoteExec ["build_fnc_doCreate", 2]; 
     objPurchase = true; 
 } else { 

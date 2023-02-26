@@ -5,41 +5,33 @@
 *
 *  Domain: Client
 **/
-
-params ["_factionID", "_bankBalance"];
+/**
+*  buildPoints_fnc_updateHud
+*
+*  Update the Build Points HUD
+*
+*  Domain: Client
+**/
 
 if (hasInterface) then {
-	
-	// Disable the serialization of the code, so that it is not stored
-	// in the mission RPT file.
 	disableSerialization;
-
-	// Get the player object
-	_player = player;
-
-	// Get the player's faction ID and bank balance from the params
-	_factionID = _this select 0;
-	_bankBalance = _this select 1;
-
-	// Create the HUD text for the player's faction
-	switch (_factionID) do {
-		case 0: { 
-			_hudText = format ["<t size='1.2' color='#ffffff'>%1</t><br/><t size='1.5' color='#dddddd'>points: %2</t>", _bankBalance];
+	switch (side player) do {
+		case west: {
+			_hudText = format ["<t size='1.2' color='#ffffff'>%2</t><br/><t size='1.6' color='#dddddd'>points: %1</t>", _this select 0 params ["_bankBalance"]];
 			1000 cutRsc ["BuildPointsHud","PLAIN"];
-			_ui = uiNameSpace getVariable "BuildPointsHud";
+			_ui = uiNameSpace getVariable "BuildPointsHud";	
 			_BuildPointsHud = _ui displayCtrl 99999;
 			_BuildPointsHud ctrlSetStructuredText parseText _hudText;
 			_BuildPointsHud ctrlCommit 0;
 		};
-		case 1: {
-			_hudText = format ["<t size='1.2' color='#ffffff'>%1</t><br/><t size='1.5' color='#dddddd'>points: %2</t>", _bankBalance];
+		case east: {
+			_hudText = format ["<t size='1.2' color='#ffffff'>%2</t><br/><t size='1.6' color='#dddddd'>points: %1</t>",  _this select 0 params ["_bankBalance"]];
 			1000 cutRsc ["BuildPointsHud","PLAIN"];
-			_ui = uiNameSpace getVariable "BuildPointsHud";
+			_ui = uiNameSpace getVariable "BuildPointsHud";	
 			_BuildPointsHud = _ui displayCtrl 99999;
 			_BuildPointsHud ctrlSetStructuredText parseText _hudText;
 			_BuildPointsHud ctrlCommit 0;
 		};
 	};
-
-	hint "Build Points HUD Updated";
+    sleep 0.1;
 };
