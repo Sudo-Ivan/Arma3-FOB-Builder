@@ -37,9 +37,6 @@ class CfgRemoteExec
 	class Functions
 	{
 		mode = 2;
-		class init {};
-		class add {};
-		class spend {};
 		class updateHud {};
 
 		class build_fnc_doPickup {};

@@ -4,6 +4,9 @@
 
 /*  Price - Display Name - Class Name - Rotation When Bought - Object Radius (meters) - explosive - invincible -  Has AI true/false (for objects with AI like autonomous turrests)	*/
 
+globalWestBankBalance = 50004;
+globalEastBankBalance = 50007;
+
 BUILDER_ITEMS = [
     [25,    "Long Plank (8m)",        "Land_Plank_01_8m_F",                0,        4,        0,        0,        false],
     [50,    "Junk Barricade",         "Land_Barricade_01_4m_F",            0,      1.5,        0,        0,        false],

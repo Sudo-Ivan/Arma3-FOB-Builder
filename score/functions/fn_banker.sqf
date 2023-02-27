@@ -4,21 +4,30 @@
 // _shopPrice: Price of the purchased item
 // returns: New bank balance
 
-fn_banker = {
-    params ["_shopPrice", side player];
-    _bankBalance = switch (side player) do {
-        case west: { 50000 };
-        case east: { 50000 };
-    };
-    if (_bankBalance >= _shopPrice) then {
-        _bankBalanceChange = _bankBalance - _shopPrice;
-        switch (side player) do {
-            case west: { _bankBalanceChange set _bankBalance; };
-            case east: { _bankBalanceChange set _bankBalance; };
+
+fn_banker = switch (side player) do {
+    case west: {
+        params ["_shopPrice"];
+        _bankBalance = missionNamespace getVariable ["globalWestBankBalance"];
+        if (_bankBalance >= _shopPrice) then {
+            _bankBalanceChange = _bankBalance - _shopPrice;
+        } else {
+            hint "Insufficient funds";
         };
-    } else {
-        hint "Insufficient funds";
+        west = missionNamespace setVariable ["globalWestBankBalance", "_bankBalance"];
+        sleep 0.1;
+        [_bankBalance] remoteExec ["buildPoints_fnc_updateHud"];
     };
-    sleep 0.1;
-    [_bankBalance] remoteExec ["buildPoints_fnc_updateHud", 0];
+    case east: {
+        params ["_shopPrice"];
+        _bankBalance = missionNamespace getVariable ["globalEastBankBalance"];
+        if (_bankBalance >= _shopPrice) then {
+            _bankBalanceChange = _bankBalance - _shopPrice;
+        } else {
+            hint "Insufficient funds";
+        };
+        east = missionNamespace setVariable ["globalEastBankBalance", "_bankBalance"];
+        sleep 0.1;
+        [_bankBalance] remoteExec ["buildPoints_fnc_updateHud"];
+    };
 };
