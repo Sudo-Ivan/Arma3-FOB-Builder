@@ -25,6 +25,7 @@ private _vechAi     = _buildItem select 7;
 
 private _shopVehicle = objnull;
 
+
 if (_vechAi) then {
     _vechWithAi = [[0,0,300], 0, _shopClass, west] call BIS_fnc_spawnVehicle;
     // change faction to corresponding buyer?

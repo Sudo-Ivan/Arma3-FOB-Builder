@@ -1,18 +1,21 @@
-/**
-*  fn_updateHud
-*
-*  Hud values have changed, update Hud
-*
-*  Domain: Client
-**/
+	/**
+	*  buildPoints_fnc_updateHud
+	*
+	*  Update the Build Points HUD
+	*
+	*  Domain: Client
+	**/
 
 if (hasInterface) then {
     disableSerialization;
-    _player = player;
 
-    _buildPoints = [_player] call buildPoints_fnc_get;
+    private _pointsWHUD = missionNamespace getVariable ["globalWestBankBalance", 0];
+    private _hudTextW = format ["<t size='1.2' color='#ffffff'>%2</t><br/><t size='0.9' color='#dddddd'>West points: %1</t>", _pointsWHUD];
 
-    _hudText = format ["<t size='1.2' color='#ffffff'>%1</t><br/><t size='1.5' color='#dddddd'>%2</t>",(name _player), _buildPoints];
+    private _pointsEHUD = missionNamespace getVariable ["globalEastBankBalance", 0];
+    private _hudTextE = format ["<t size='1.2' color='#ffffff'>%2</t><br/><t size='0.9' color='#dddddd'>East points: %1</t>", _pointsEHUD];
+
+    private _hudText = _hudTextW + "<br/>" + _hudTextE;
 
     1000 cutRsc ["BuildPointsHud","PLAIN"];
     _ui = uiNameSpace getVariable "BuildPointsHud";

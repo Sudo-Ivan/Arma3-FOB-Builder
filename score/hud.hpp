@@ -14,8 +14,8 @@ class buildPointsHud {
 			idc = buildPoints_idc;
 			type = CT_STRUCTURED_TEXT;
 			size = 0.040;
-			x = (SafeZoneX + 0);
-			y = (SafeZoneY + 0.015);
+			x = (SafeZoneX + 0.5);
+			y = (SafeZoneY + 0.01);
 			w = 0.2; h = 0.18;
 			colorText[] = {1,1,1,1};
 			lineSpacing = 3;

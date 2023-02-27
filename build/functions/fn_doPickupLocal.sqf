@@ -13,6 +13,7 @@ if(isNil "_pos") then {
 forEach playableUnits;
 
 removeAllActions _object;
+removeAllActions _player;
 
 _player addAction [
 	"<t color='#00ffff'>Drop Object (Snap To Ground)</t>",

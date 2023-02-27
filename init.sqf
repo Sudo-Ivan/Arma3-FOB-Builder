@@ -6,3 +6,5 @@ waitUntil { scriptDone _basepoint };
 
 publicVariable "buildBox";
 publicVariable "BUILDER_ITEMS";
+publicVariable "globalEastBankBalance";
+publicVariable "globalWestBankBalance";

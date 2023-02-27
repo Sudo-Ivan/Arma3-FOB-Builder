@@ -28,7 +28,6 @@ class CfgFunctions
 	#include "score\Functions.hpp"
 	#include "builder\Functions.hpp"
 	#include "build\Functions.hpp"
-	#include "shared\Functions.hpp"
 	#include "player\Functions.hpp"
 };
 
@@ -37,9 +36,6 @@ class CfgRemoteExec
 	class Functions
 	{
 		mode = 2;
-		class init {};
-		class add {};
-		class spend {};
 		class updateHud {};
 
 		class build_fnc_doPickup {};
