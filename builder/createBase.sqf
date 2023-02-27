@@ -5,8 +5,8 @@ buildBoxes = [portablebuildBox1, portablebuildBox2];
 PLAYER_OBJECT_LIST =[];
 
 {
-    _buildBox = _x; //Sets a variable to the current object in the list
-    //Adds an action to the buildbox that calls the moveBox function when the action is pressed
+    _buildBox = _x;
+    removeAllActions _buildBox;
     [_buildBox, ["<t color='#00ffff'>" + "Pickup", { _this call builder_fnc_moveBox; },"",1,false,false,"true","true",2.5]] remoteExec ["addAction", 0, true];
     //Adds an action to the buildbox that opens the purchase GUI when the action is pressed
     [_buildBox, ["<t color='#00ff00'>" + "Shop", "[] spawn builder_fnc_purchaseGui; ShopCaller = _this select 1","",1.5,false,false,"true","true",2.5]] remoteExec ["addAction", 0, true];
