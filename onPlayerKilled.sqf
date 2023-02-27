@@ -8,4 +8,8 @@ if(!isNil "_holdSpec") then {
 	player call build_fnc_unregisterHeldObject;
 };
 
-sleep 0.2;
+sleep 0.1;
+
+[east] remoteExec ["buildPoints_fnc_updateHud"];
+
+sleep 0.1;
