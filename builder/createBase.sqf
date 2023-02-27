@@ -1,5 +1,5 @@
 // Create a list of build boxes
-buildBoxes = [portablebuildBox1, portablebuildBox2];
+buildBoxes = [pBox1, pBox2];
 
 // Create an empty list of objects
 PLAYER_OBJECT_LIST =[];

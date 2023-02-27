@@ -1,8 +1,11 @@
-// Subtracts the price of the purchased item from the side's bank balance
-// and returns the new bank balance
-// _banker: side whose bank balance is being updated (west or east)
-// _shopPrice: Price of the purchased item
-// returns: New bank balance
+	/**
+	*  buildPoints_fnc_banker
+	*
+	*  Update balance
+	*
+	*  Domain: missionNamespace
+	**/
+
 
 params ["_banker", "_shopPrice"];
 
