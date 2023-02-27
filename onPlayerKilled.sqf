@@ -9,5 +9,3 @@ if(!isNil "_holdSpec") then {
 };
 
 sleep 0.2;
-
-[] remoteExec ["buildPoints_fnc_updateHud", 0];
