@@ -1,33 +1,29 @@
 // Subtracts the price of the purchased item from the side's bank balance
 // and returns the new bank balance
-// _factionID: ID of the side whose bank balance is being updated
+// _banker: side whose bank balance is being updated (west or east)
 // _shopPrice: Price of the purchased item
 // returns: New bank balance
 
+params ["_banker", "_shopPrice"];
 
-fn_banker = switch (side player) do {
+switch (_banker) do {
     case west: {
-        params ["_shopPrice"];
-        _bankBalance = missionNamespace getVariable ["globalWestBankBalance"];
-        if (_bankBalance >= _shopPrice) then {
-            _bankBalanceChange = _bankBalance - _shopPrice;
-        } else {
-            hint "Insufficient funds";
-        };
-        west = missionNamespace setVariable ["globalWestBankBalance", "_bankBalance"];
+        params ["_banker", "_shopPrice"];
+        _bankBalance = missionNamespace getVariable ["globalWestBankBalance", 0];  
+        _bankBalanceChange = _bankBalance - _shopPrice;
+        missionNamespace setVariable ["globalWestBankBalance", _bankBalanceChange];
         sleep 0.1;
-        [_bankBalance] remoteExec ["buildPoints_fnc_updateHud"];
+        [west] remoteExec ["buildPoints_fnc_updateHud"];
     };
     case east: {
-        params ["_shopPrice"];
-        _bankBalance = missionNamespace getVariable ["globalEastBankBalance"];
-        if (_bankBalance >= _shopPrice) then {
-            _bankBalanceChange = _bankBalance - _shopPrice;
-        } else {
-            hint "Insufficient funds";
-        };
-        east = missionNamespace setVariable ["globalEastBankBalance", "_bankBalance"];
+        params ["_banker", "_shopPrice"];
+        _bankBalance = missionNamespace getVariable ["globalEastBankBalance", 0];  
+        _bankBalanceChange = _bankBalance - _shopPrice;
+        missionNamespace setVariable ["globalEastBankBalance", _bankBalanceChange];
         sleep 0.1;
-        [_bankBalance] remoteExec ["buildPoints_fnc_updateHud"];
+        [east] remoteExec ["buildPoints_fnc_updateHud"];
+    };
+    default {
+        hint "Error: Banker not found";
     };
 };
