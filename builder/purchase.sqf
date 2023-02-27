@@ -48,4 +48,5 @@ switch (side player) do {
             };
         };
     };
+        default { hint "error: non defined faction" };
 };
