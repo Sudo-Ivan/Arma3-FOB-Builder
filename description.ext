@@ -1,10 +1,3 @@
-onLoadMission = "Builder";
-onLoadIntro = "Build That FOB!";
-onLoadName = "Builder";
-briefingName = "Builder";
-overviewText = "Survive by scavenging equipment, in a randomly selected city, against ever increasing waves of hostiles.";
-author = "Ivan";
-
 respawnOnStart = 1;
 respawnDelay = 2;
 

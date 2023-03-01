@@ -13,5 +13,3 @@ if (!alive player) then {
 
 sleep 0.1;
 
-[east] remoteExec ["buildPoints_fnc_updateHud"];
-
